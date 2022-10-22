@@ -1,4 +1,4 @@
-# SFXOS
+# MYOS
  A basic multiboot2 compliant operating system for learning purpouses
 
 ## CHANGELOG
