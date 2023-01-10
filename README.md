@@ -1,5 +1,5 @@
 # MYOS
-A basic multiboot2 compliant operating system for learning purposes
+ A basic multiboot2 compliant operating system for learning purposes
  NOTE - THIS IS A HOBBY PROJECT SO DON'T EXPECT MUCH
 
 ## CHANGELOG
