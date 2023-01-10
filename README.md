@@ -1,5 +1,5 @@
 # MYOS
- A basic multiboot2 compliant operating system for learning purpouses
+A basic multiboot2 compliant operating system for learning purposes
 
 ## CHANGELOG
 
