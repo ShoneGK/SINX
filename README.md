@@ -1,6 +1,6 @@
 # MYOS
 A basic multiboot2 compliant operating system for learning purposes
-NOTE - THIS IS A HOBBY PROJECT SO DON'T EXPECT MUCH
+ NOTE - THIS IS A HOBBY PROJECT SO DON'T EXPECT MUCH
 
 ## CHANGELOG
 
