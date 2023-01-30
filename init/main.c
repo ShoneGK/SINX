@@ -1,13 +1,6 @@
 /*************************************************************************/
 /*                                 main.c                                */
 /*************************************************************************/
-/*                         ______     ______   __  __                    */
-/*                        /\  ___\   /\  ___\ /\_\_\_\                   */
-/*                        \ \___  \  \ \  __\ \/_/\_\/_                  */
-/*                         \/\_____\  \ \_\     /\_\/\_\                 */
-/*                          \/_____/   \/_/     \/_/\/_/                 */
-/*                                                                       */
-/*************************************************************************/
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
 /* "Software"), to deal in the Software without restriction, including   */
@@ -34,11 +27,12 @@
 #include <sinx/buffer.h>
 #include <sinx/panic.h>
 #include <drivers/keyboard/driver.h>
+#include <drivers/gpu/colorizer.h>
 
 void main()
 {
     clearBuffer();
-    setBufferColor(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
+    setBufferColor(PRINT_COLOR_RED, PRINT_COLOR_BLACK);
     printf("------------------------------- WELCOME TO MY OS -------------------------------");
 
     keyboardInstance();

@@ -35,8 +35,6 @@ build: $(kernel_object_files) $(x86_64_object_files)
 	x86_64-elf-ld -n -o __temp__/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(kernel_object_files) $(x86_64_object_files) && \
 	cp __temp__/build/x86_64/kernel.bin bootloader/x86_64/iso/boot/kernel.bin && \
 	grub-mkrescue /usr/lib/grub/i386-pc -o kernel.iso bootloader/x86_64/iso
-	rm -r __temp__
 
 run:
 	make build
-	qemu-system-x86_64 --cdrom build/x86_64/kernel.iso

@@ -1,13 +1,6 @@
 /*************************************************************************/
 /*                                driver.h                               */
 /*************************************************************************/
-/*                         ______     ______   __  __                    */
-/*                        /\  ___\   /\  ___\ /\_\_\_\                   */
-/*                        \ \___  \  \ \  __\ \/_/\_\/_                  */
-/*                         \/\_____\  \ \_\     /\_\/\_\                 */
-/*                          \/_____/   \/_/     \/_/\/_/                 */
-/*                                                                       */
-/*************************************************************************/
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
 /* "Software"), to deal in the Software without restriction, including   */
@@ -128,9 +121,9 @@ void keyboardInstance()
             currentBufferRow--;
             textData[strlen(textData) - 1] = 0x00;
           }
-          // causes cursor to go to the begenning of the row
+          // causes cursor to go to the begenning of the row (NOT WORKING)
           //else {
-          // currentBufferColumn--;
+          //  currentBufferColumn--;
           //}
 
         }
