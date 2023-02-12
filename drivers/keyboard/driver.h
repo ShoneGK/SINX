@@ -111,13 +111,14 @@ void keyboardInstance()
         keycode = get_input_keycode();
         if (keycode == KEY_ENTER)
         {
-          putn();
+          putnK();
           memset(textData, 0x00);
         }
         // for testing
         else if (keycode == KEY_FORESLHASH)
         {
-          kernelPanic();
+          clearBuffer();
+          //kernelPanic();
           //  uint8_t cbc = currentBufferCharacter();
           //  if(cbc == ' '){
           //    puts("nothing fam");

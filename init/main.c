@@ -33,7 +33,7 @@ void main()
 {
     clearBuffer();
     setBufferColor(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
-    printf("------------------------------- WELCOME TO MY OS -------------------------------");
+    puts("------------------------------- WELCOME TO MY OS -------------------------------");
 
     keyboardInstance();
     // kernelPanic();

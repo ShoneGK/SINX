@@ -67,6 +67,28 @@ void clearBuffer()
 
 void putn()
 {
+    currentBufferRow = 1;
+
+    if (currentBufferColumn < bufferColumns - 1)
+    {
+        currentBufferColumn++;
+        return;
+    }
+
+    for (size_t row = 1; row < bufferColumns; row++)
+    {
+        for (size_t col = 0; col < bufferRows; col++)
+        {
+            struct bufferEntry character = videoBuffer[col + bufferRows * row];
+            videoBuffer[col + bufferRows * (row - 1)] = character;
+        }
+    }
+
+    clearBufferRow(bufferRows - 1);
+}
+
+void putnK()
+{
     currentBufferRow = 0;
 
     if (currentBufferColumn < bufferColumns - 1)
