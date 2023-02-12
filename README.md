@@ -10,10 +10,10 @@ completely cleaned up source and distributed source to multiple files
  1. download and extract the source
  2. cd into source directory
  3. create a docker image using the provided Dockerfile (you only have to do this once!)
-`docker build buildenv -t myos-buildenv`
+`docker build buildenv -t sinx-buildenv`
  4. enter the docker environment
-  - Linux or MacOS: `docker run --rm -it -v "$(pwd)":/root/env myos-buildenv`
-  - Windows (CMD): `docker run --rm -it -v "%cd%":/root/env myos-buildenv`
+  - Linux or MacOS: `docker run --rm -it -v "$(pwd)":/root/env sinx-buildenv`
+  - Windows (CMD): `docker run --rm -it -v "%cd%":/root/env sinx-buildenv`
  5. run makefile inside docker env
  `make build`
  6. exit docker environment
