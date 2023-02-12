@@ -61,6 +61,8 @@ void clearBuffer()
     {
         clearBufferRow(i);
     }
+    currentBufferRow = 0;
+    currentBufferColumn = 0;
 }
 
 void putn()
@@ -124,4 +126,9 @@ void puts(char *str)
 void setBufferColor(uint8_t foreground, uint8_t background)
 {
     bufferColor = foreground + (background << 4);
+}
+
+uint8_t currentBufferCharacter(){
+    uint8_t currentchar = videoBuffer[currentBufferRow + bufferRows * currentBufferColumn - 1].character;
+    return currentchar;
 }

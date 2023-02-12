@@ -32,7 +32,7 @@
 void main()
 {
     clearBuffer();
-    setBufferColor(PRINT_COLOR_RED, PRINT_COLOR_BLACK);
+    setBufferColor(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
     printf("------------------------------- WELCOME TO MY OS -------------------------------");
 
     keyboardInstance();

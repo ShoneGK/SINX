@@ -30,8 +30,10 @@ completely cleaned up source and distributed source to multiple files
 - [ ] organize #include statements to remove repeats
 - [ ] fix enter and backspace bugs
 - [ ] add basic command framework
+- [ ] read from RTC
 - [x] clean up / remove print.c
 - [ ] make a more advanced userland shell
+- [ ] add a blinking cursor
 - [x] make a red screen of death / kernel panic state
 - [x] add the ability to BACKSPACE :D
 - [x] do a complete filetree redisign

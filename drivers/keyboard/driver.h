@@ -29,8 +29,10 @@
 #include <dtypes.h>
 #include <sinx/buffer.h>
 #include <string.h>
+#include <sinx/panic.h>
 
 unsigned int keyReadSleep = 25000000;
+unsigned int lastCharDel = 0;
 
 void wait_for_io(uint32_t timer_count)
 {
@@ -112,6 +114,14 @@ void keyboardInstance()
           putn();
           memset(textData, 0x00);
         }
+        // for testing
+        else if (keycode == KEY_FORESLHASH)
+        {
+          kernelPanic();
+          //  uint8_t cbc = currentBufferCharacter();
+          //  if(cbc == ' '){
+          //    puts("nothing fam");
+        }
         else if (keycode == KEY_BACKSPACE)
         {
           if (currentBufferRow >= 1)
@@ -121,11 +131,11 @@ void keyboardInstance()
             currentBufferRow--;
             textData[strlen(textData) - 1] = 0x00;
           }
-          // causes cursor to go to the begenning of the row (NOT WORKING)
-          //else {
-          //  currentBufferColumn--;
-          //}
-
+          // causes cursor to go to the begenning of the row
+          else
+          {
+            currentBufferColumn--;
+          }
         }
         else
         {
