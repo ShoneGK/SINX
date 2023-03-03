@@ -34,6 +34,16 @@ void main()
     clearBuffer();
     setBufferColor(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
     puts("------------------------------- WELCOME TO MY OS -------------------------------");
+    putn();
+  
+
+    videoBuffer[currentBufferRow + bufferRows * currentBufferColumn] = (struct bufferEntry){
+        character : 196,
+        color : bufferColor,
+    };
+    
+    currentBufferRow++;
+          
 
     keyboardInstance();
     // kernelPanic();

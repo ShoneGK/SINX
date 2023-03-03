@@ -25,19 +25,27 @@
 /*************************************************************************/
 #pragma once
 
-unsigned int strlen(const char *str)
-{
-  unsigned int length = 0;
-  while (str[length])
-    length++;
-  return length;
+int strlen(char s[]) {
+    int i = 0;
+    while (s[i] != '\0') {
+        ++i;
+    }
+    return i;
 }
-
 void strncat(char *s, char c)
 {
   int len = strlen(s);
   s[len] = c;
   s[len + 1] = '\0';
+}
+
+// compare string
+int strcmp(char s1[], char s2[]) {
+    int i;
+    for (i = 0; s1[i] == s2[i]; i++) {
+        if (s1[i] == '\0') return 0;
+    }
+    return s1[i] - s2[i];
 }
 
 char *memset(char *dest, int val)

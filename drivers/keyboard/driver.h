@@ -67,25 +67,6 @@ void debug()
   }
 }
 
-// for emergencies / temporary
-/*
-void test_input()
-{
-  char ch = 0;
-  char keycode = 0;
-
-  do{
-
-    keycode = get_input_keycode();
-
-    if(keycode == KEY_ENTER){putn();}
-    else if(keycode == KEY_BACKSPACE){currentBufferRow--; putc(' '); currentBufferRow --;}
-    else{ch = get_ascii_char(keycode); putc(ch);}
-
-    wait_for_io(keyReadSleep);
-  }while(ch > 0);
-}
-*/
 void keyboardInstance()
 {
   char ch = 0;
@@ -112,16 +93,13 @@ void keyboardInstance()
         if (keycode == KEY_ENTER)
         {
           putnK();
-          memset(textData, 0x00);
+          // memset(textData, 0x00);
         }
         // for testing
         else if (keycode == KEY_FORESLHASH)
         {
           clearBuffer();
-          //kernelPanic();
-          //  uint8_t cbc = currentBufferCharacter();
-          //  if(cbc == ' '){
-          //    puts("nothing fam");
+          puts(textData);
         }
         else if (keycode == KEY_BACKSPACE)
         {
@@ -130,19 +108,37 @@ void keyboardInstance()
             currentBufferRow--;
             putc(' ');
             currentBufferRow--;
-            textData[strlen(textData) - 1] = 0x00;
+            // textData[strlen(textData) - 1] = 0x00;
           }
           // causes cursor to go to the begenning of the row
           else
           {
-            currentBufferColumn--;
+            if (currentBufferColumn > 1)
+              currentBufferColumn--;
+
+            currentBufferRow = bufferRows;
+            int i = 1;
+
+            while (i == 1)
+            {
+
+              if (videoBuffer[currentBufferRow + bufferRows * currentBufferColumn - 1].character == ' ')
+              {
+                currentBufferRow--;
+              }
+              else
+              {
+                i = 2;
+                break;
+              }
+            }
           }
         }
         else
         {
           ch = get_ascii_char(keycode);
           putc(ch);
-          strncat(textData, ch);
+          // strncat(textData, ch);
         }
       }
     }
