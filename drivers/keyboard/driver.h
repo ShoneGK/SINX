@@ -99,7 +99,7 @@ void keyboardInstance()
         else if (keycode == KEY_FORESLHASH)
         {
           clearBuffer();
-          puts(textData);
+          //puts(textData);
         }
         else if (keycode == KEY_BACKSPACE)
         {
