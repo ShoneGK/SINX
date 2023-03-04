@@ -59,6 +59,13 @@ char *memset(char *dest, int val)
   return dest;
 }
 
+void memcp(char *source, char *dest, int nbytes) {
+    int i;
+    for (i = 0; i < nbytes; i++) {
+        *(dest + i) = *(source + i);
+    }
+}
+
 void clearString(char *string)
 {
 

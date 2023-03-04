@@ -24,7 +24,7 @@ completely cleaned up source and distributed source to multiple files
 ## TODO
 - [x] do a very basic code organize
 - [x] make a keyboard driver
-- [x] add keyboard support
+- [ ] re-add keyboard support
 - [x] add a more advanced keybord input system
 - [x] clean up / remove print.c
 - [x] make a red screen of death / kernel panic state
