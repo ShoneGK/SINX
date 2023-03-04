@@ -33,6 +33,7 @@ completely cleaned up source and distributed source to multiple files
 - [x] GET 64 BIT/LONG MODE SUPPORT :D
 - [x] make a basic input system
 - [ ] rewrite VGA driver for stability/font control
+- [ ] rewrite all c code into file.c and file.h respectively
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
