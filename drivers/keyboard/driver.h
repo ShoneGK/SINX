@@ -27,9 +27,13 @@
 #include <drivers/keyboard/keys.h>
 #include <iobyte.h>
 #include <dtypes.h>
-#include <sinx/buffer.h>
+// #include <sinx/buffer.h>
 #include <string.h>
-#include <sinx/panic.h>
+// #include <sinx/panic.h>
+#include <drivers/VGA/driver.h>
+#include <drivers/kbd/kbd.h>
+#include <string.h>
+#include <sinx/tty.h>
 
 unsigned int keyReadSleep = 25000000;
 unsigned int lastCharDel = 0;
@@ -92,52 +96,28 @@ void keyboardInstance()
         keycode = get_input_keycode();
         if (keycode == KEY_ENTER)
         {
-          putnK();
-          // memset(textData, 0x00);
+          puts("\n");
+          execute_command(key_buffer);
+          key_buffer[0] = '\0';
         }
         // for testing
         else if (keycode == KEY_FORESLHASH)
         {
-          clearBuffer();
-          //puts(textData);
+
+          clearVGA();
+          // puts(textData);
         }
         else if (keycode == KEY_BACKSPACE)
         {
-          if (currentBufferRow >= 1)
-          {
-            currentBufferRow--;
-            putc(' ');
-            currentBufferRow--;
-            // textData[strlen(textData) - 1] = 0x00;
-          }
-          // causes cursor to go to the begenning of the row
-          else
-          {
-            if (currentBufferColumn > 1)
-              currentBufferColumn--;
-
-            currentBufferRow = bufferRows;
-            int i = 1;
-
-            while (i == 1)
-            {
-
-              if (videoBuffer[currentBufferRow + bufferRows * currentBufferColumn - 1].character == ' ')
-              {
-                currentBufferRow--;
-              }
-              else
-              {
-                i = 2;
-                break;
-              }
-            }
-          }
+          if (backspace_func(key_buffer))
+            print_backspace();
         }
         else
         {
-          ch = get_ascii_char(keycode);
-          putc(ch);
+          char letter = get_ascii_char(keycode);
+          join(key_buffer, letter);
+          char str[2] = {letter, '\0'};
+          puts(str);
           // strncat(textData, ch);
         }
       }

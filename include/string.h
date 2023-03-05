@@ -25,6 +25,8 @@
 /*************************************************************************/
 #pragma once
 
+#include <dtypes.h>
+
 int strlen(char s[]) {
     int i = 0;
     while (s[i] != '\0') {
@@ -58,7 +60,11 @@ char *memset(char *dest, int val)
     *ptr++ = val;
   return dest;
 }
-
+void join(char s[], char n) {
+    int len = strlen(s);
+    s[len] = n;
+    s[len + 1] = '\0';
+}
 void memcp(char *source, char *dest, int nbytes) {
     int i;
     for (i = 0; i < nbytes; i++) {

@@ -23,38 +23,23 @@
 /*                         Main file where required                      */
 /*                            functions are called                       */
 /*************************************************************************/
-//#include <stdio.h>
-//#include <sinx/buffer.h>
-//#include <sinx/panic.h>
-//#include <drivers/keyboard/driver.h>
-//#include <drivers/gpu/colorizer.h>
+
+#include <drivers/keyboard/driver.h>
+// #include <drivers/gpu/colorizer.h>
 #include <drivers/VGA/driver.h>
+
 
 void main()
 {
-    
-    // OLD
-    /*
-    clearBuffer();
-    setBufferColor(PRINT_COLOR_WHITE, PRINT_COLOR_BLACK);
-    puts("------------------------------- WELCOME TO MY OS -------------------------------");
-    putn();
-  
 
-    videoBuffer[currentBufferRow + bufferRows * currentBufferColumn] = (struct bufferEntry){
-        character : 196,
-        color : bufferColor,
-    };
-    
-    currentBufferRow++;
-          
 
-    keyboardInstance();
-    // kernelPanic();
-
-    */
-    // NEW
     clearVGA();
-    puts("Hello World!\n");
+    puts("------------------------------- WELCOME TO MY OS -------------------------------\n");
 
+    //keyboard_callback();
+
+    enableVGACursor(15, 15); // sets cursor to "_"
+    puts("> ");
+    keyboardInstance();
+    puts("DONE");
 }

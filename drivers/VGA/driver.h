@@ -1,6 +1,32 @@
+/*************************************************************************/
+/*                                driver.h                               */
+/*************************************************************************/
+/* Permission is hereby granted, free of charge, to any person obtaining */
+/* a copy of this software and associated documentation files (the       */
+/* "Software"), to deal in the Software without restriction, including   */
+/* without limitation the rights to use, copy, modify, merge, publish,   */
+/* distribute, sublicense, and/or sell copies of the Software, and to    */
+/* permit persons to whom the Software is furnished to do so, subject to */
+/* the following conditions:                                             */
+/*                                                                       */
+/* The above copyright notice and this permission notice shall be        */
+/* included in all copies or substantial portions of the Software.       */
+/*                                                                       */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
+/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
+/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
+/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
+/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
+/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
+/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
+/*************************************************************************/
+/*                         An advanced VGA driver                        */
+/*************************************************************************/
+
 #pragma once
 
 #include <iobyte.h>
+#include <string.h>
 
 #define VGA_CTRL_REGISTER 0x3d4
 #define VGA_DATA_REGISTER 0x3d5
@@ -56,19 +82,17 @@ int getCellRow(int offset) {
     return offset / (2 * MAX_COLS);
 }
 
+char getCurrentChar(int offset){
+    unsigned char *vidmem = (unsigned char *) VIDEO_ADDRESS;
+    return vidmem[offset];
+}
+
 int get_offset(int col, int row) {
     return 2 * (row * MAX_COLS + col);
 }
 
 int setNewline(int offset) {
     return get_offset(0, getCellRow(offset) + 1);
-}
-
-void memcp(char *source, char *dest, int nbytes) {
-    int i;
-    for (i = 0; i < nbytes; i++) {
-        *(dest + i) = *(source + i);
-    }
 }
 
 int scrollLine(int offset) {
@@ -90,4 +114,13 @@ void clearVGA() {
         putc(' ', i * 2);
     }
     setVGACursor(get_offset(0, 0));
+}
+
+void enableVGACursor(uint8_t cursor_start, uint8_t cursor_end)
+{
+	outb(0x3D4, 0x0A);
+	outb(0x3D5, (inb(0x3D5) & 0xC0) | cursor_start);
+ 
+	outb(0x3D4, 0x0B);
+	outb(0x3D5, (inb(0x3D5) & 0xE0) | cursor_end);
 }
