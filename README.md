@@ -24,7 +24,7 @@ completely cleaned up source and distributed source to multiple files
 ## TODO
 - [x] do a very basic code organize
 - [x] make a keyboard driver
-- [ ] re-add keyboard support
+- [x] re-add keyboard support
 - [x] add a more advanced keybord input system
 - [x] clean up / remove print.c
 - [x] make a red screen of death / kernel panic state
@@ -33,14 +33,14 @@ completely cleaned up source and distributed source to multiple files
 - [x] GET 64 BIT/LONG MODE SUPPORT :D
 - [x] make a basic input system
 - [x] rewrite VGA driver for stability/font control
+- [x] make a more advanced userland shell
+- [x] add basic command framework
+- [x] fix enter and backspace bugs
 - [ ] rewrite all c code into file.c and file.h respectively
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
-- [ ] fix enter and backspace bugs
-- [ ] add basic command framework
 - [ ] read from RTC
-- [ ] make a more advanced userland shell
 - [ ] add a blinking cursor
 - [ ] add POSIX compliance
 - --------------------------------------------
