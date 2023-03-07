@@ -24,23 +24,24 @@ completely cleaned up source and distributed source to multiple files
 ## TODO
 - [x] do a very basic code organize
 - [x] make a keyboard driver
-- [x] re-add keyboard support
 - [x] add a more advanced keybord input system
 - [x] clean up / remove print.c
 - [x] make a red screen of death / kernel panic state
-- [x] add the ability to BACKSPACE :D
+- [x] add the ability to BACKSPACE
 - [x] do a complete filetree redisign
-- [x] GET 64 BIT/LONG MODE SUPPORT :D
+- [x] GET 64 BIT/LONG MODE SUPPORT
 - [x] make a basic input system
 - [x] rewrite VGA driver for stability/font control
 - [x] make a more advanced userland shell
 - [x] add basic command framework
 - [x] fix enter and backspace bugs
 - [x] add a blinking cursor
+- [x] read from RTC
 - [ ] rewrite all c code into file.c and file.h respectively
+- [ ] create/modify a better build system
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
-- [ ] read from RTC
 - [ ] add POSIX compliance
+- [ ] add filesystem support
 - --------------------------------------------
