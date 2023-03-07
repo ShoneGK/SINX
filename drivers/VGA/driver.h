@@ -124,3 +124,9 @@ void enableVGACursor(uint8_t cursor_start, uint8_t cursor_end)
 	outb(0x3D4, 0x0B);
 	outb(0x3D5, (inb(0x3D5) & 0xE0) | cursor_end);
 }
+
+void disableCursor()
+{
+	outb(0x3D4, 0x0A);
+	outb(0x3D5, 0x20);
+}

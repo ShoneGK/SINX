@@ -84,6 +84,8 @@ void clearString(char *string)
   }
 }
 
+
+
 /*
 void itoa(int num, char *number)
 {
