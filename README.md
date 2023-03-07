@@ -36,11 +36,11 @@ completely cleaned up source and distributed source to multiple files
 - [x] make a more advanced userland shell
 - [x] add basic command framework
 - [x] fix enter and backspace bugs
+- [x] add a blinking cursor
 - [ ] rewrite all c code into file.c and file.h respectively
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
 - [ ] read from RTC
-- [ ] add a blinking cursor
 - [ ] add POSIX compliance
 - --------------------------------------------
