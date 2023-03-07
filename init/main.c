@@ -28,15 +28,13 @@
 // #include <drivers/gpu/colorizer.h>
 #include <drivers/VGA/driver.h>
 
-
 void main()
 {
-
 
     clearVGA();
     puts("------------------------------------- SINX -------------------------------------\n");
 
-    //keyboard_callback();
+    // keyboard_callback();
 
     enableVGACursor(15, 15); // sets cursor to "_"
     puts("> ");
