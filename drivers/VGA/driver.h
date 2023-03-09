@@ -27,6 +27,8 @@
 
 #include <iobyte.h>
 #include <string.h>
+#include <dtypes.h>
+#include <drivers/gpu/colorizer.h>
 
 #define VGA_CTRL_REGISTER 0x3d4
 #define VGA_DATA_REGISTER 0x3d5
@@ -37,6 +39,7 @@
 #define MAX_COLS 80
 #define WHITE_ON_BLACK 0x0f
 
+unsigned char VGAColor = GREEN | BLACK << 4;
 
 void setVGACursor(int offset) {
     offset /= 2;
@@ -54,10 +57,14 @@ int getVGACursor() {
     return offset * 2;
 }
 
+void setVGAColor(unsigned char fg, unsigned char bg){
+    unsigned char VGAColor = fg | bg << 4;
+}
+
 void putc(char character, int offset) {
     unsigned char *vidmem = (unsigned char *) VIDEO_ADDRESS;
     vidmem[offset] = character;
-    vidmem[offset + 1] = WHITE_ON_BLACK;
+    vidmem[offset + 1] = VGAColor;
 }
 
 void puts(char *string) {

@@ -32,17 +32,6 @@ static void keyboard_callback()
     }
 }
 
-// static void keyboard_callbackSS() {
-//     while (1==1){
-//     uint8_t scancode = inb(0x60);
-//
-//     char letter = get_ascii_char(scancode);
-//     join(key_buffer, letter);
-//     char str[2] = {letter, '\0'};
-//     puts(str);
-//     }
-// }
-
 int backspace_func(char buffer[])
 {
     int len = strlen(buffer);

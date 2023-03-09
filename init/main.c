@@ -30,14 +30,12 @@
 
 void main()
 {
-
+    
     clearVGA();
     puts("------------------------------------- SINX -------------------------------------\n");
-
-    // keyboard_callback();
-
+    
     enableVGACursor(15, 15); // sets cursor to "_"
     puts("> ");
     keyboardInstance();
-    puts("DONE");
+    //puts("DONE");
 }

@@ -11,6 +11,6 @@ long_mode_start:
     mov es, ax
     mov fs, ax
     mov gs, ax
-
-	call main
+    
+    call main
     hlt

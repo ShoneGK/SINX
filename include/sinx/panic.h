@@ -19,19 +19,18 @@
 /* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
 /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
+/***************************************ßßß**********************************/
 /*                 A very barebones kernel panic system                  */
 /*************************************************************************/
 #pragma once
 
-#include <sinx/buffer.h>
+#include <drivers/VGA/driver.h>
 
 void kernelPanic()
 {
 
-    clearBuffer();
-    setBufferColor(15, 4);
-    clearBuffer();
+    setVGAColor(15, 4);
+    clearVGA();
     puts("------------------------------- END KERNEL PANIC -------------------------------");
     asm volatile("hlt");
 }

@@ -20,26 +20,26 @@
 /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
-/*		  A basic 16 bit color graphics driver	   		 */
+/*		            A basic 16 bit color graphics driver	      		 */
 /*************************************************************************/
 #pragma once
 
 enum
 {
-	PRINT_COLOR_BLACK = 0,
-	PRINT_COLOR_BLUE = 1,
-	PRINT_COLOR_GREEN = 2,
-	PRINT_COLOR_CYAN = 3,
-	PRINT_COLOR_RED = 4,
-	PRINT_COLOR_MAGENTA = 5,
-	PRINT_COLOR_BROWN = 6,
-	PRINT_COLOR_LIGHT_GRAY = 7,
-	PRINT_COLOR_DARK_GRAY = 8,
-	PRINT_COLOR_LIGHT_BLUE = 9,
-	PRINT_COLOR_LIGHT_GREEN = 10,
-	PRINT_COLOR_LIGHT_CYAN = 11,
-	PRINT_COLOR_LIGHT_RED = 12,
-	PRINT_COLOR_PINK = 13,
-	PRINT_COLOR_YELLOW = 14,
-	PRINT_COLOR_WHITE = 15,
+	BLACK = 0,
+	BLUE = 1,
+	GREEN = 2,
+	CYAN = 3,
+	RED = 4,
+	MAGENTA = 5,
+	BROWN = 6,
+	LIGHT_GRAY = 7,
+	DARK_GRAY = 8,
+	LIGHT_BLUE = 9,
+	LIGHT_GREEN = 10,
+	LIGHT_CYAN = 11,
+	LIGHT_RED = 12,
+	PINK = 13,
+	YELLOW = 14,
+	WHITE = 15,
 };
