@@ -1,5 +1,5 @@
 # SINX
- A basic multiboot2 compliant operating system for learning purpouses
+ A basic 64bit multiboot2 compliant operating system for learning purpouses
 
 ## BUILDING
  make sure you have docker and qemu installed and running
