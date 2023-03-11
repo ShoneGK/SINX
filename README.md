@@ -34,6 +34,7 @@
 - [x] add a blinking cursor
 - [x] read from RTC
 - [x] create/modify a better build system
+- [ ] create custom docker container for native python support
 - [ ] rewrite all c code into file.c and file.h respectively
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
