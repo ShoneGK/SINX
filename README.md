@@ -1,10 +1,6 @@
 # SINX
  A basic multiboot2 compliant operating system for learning purpouses
 
-## CHANGELOG
-
-completely cleaned up source and distributed source to multiple files
-
 ## BUILDING
  make sure you have docker and qemu installed and running
  1. download and extract the source
@@ -37,8 +33,8 @@ completely cleaned up source and distributed source to multiple files
 - [x] fix enter and backspace bugs
 - [x] add a blinking cursor
 - [x] read from RTC
+- [x] create/modify a better build system
 - [ ] rewrite all c code into file.c and file.h respectively
-- [ ] create/modify a better build system
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
