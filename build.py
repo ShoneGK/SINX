@@ -67,8 +67,8 @@ class BuildSystem:
         self.linkerfiles, x = self.sourceFiles(".ld")
 
     def compileSource(self):
-        for x in range(len(self.hfiles)):
-            self.runGCCX86(self.hfiles[x], self.hBuildFiles[x])
+        #for x in range(len(self.hfiles)):
+        #    self.runGCCX86(self.hfiles[x], self.hBuildFiles[x])
 
         for x in range(len(self.cfiles)):
             self.runGCCX86(self.cfiles[x], self.cBuildFiles[x])

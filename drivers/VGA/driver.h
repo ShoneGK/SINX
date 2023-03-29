@@ -39,7 +39,7 @@
 #define MAX_COLS 80
 #define WHITE_ON_BLACK 0x0f
 
-unsigned char VGAColor = GREEN | BLACK << 4;
+unsigned char VGAColor = WHITE | BLACK << 4;
 
 void setVGACursor(int offset) {
     offset /= 2;
