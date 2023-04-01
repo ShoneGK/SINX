@@ -35,6 +35,8 @@
 - [x] read from RTC
 - [x] rewrite all c code into file.c and file.h respectively
 - [x] create/modify a better build system
+- [ ] add inturupts
+- [ ] test on real hardware
 - [ ] organize functions into appropriate files
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
