@@ -24,8 +24,7 @@
 /*                            functions are called                       */
 /*************************************************************************/
 
-#include <drivers/keyboard/driver.c>
-// #include <drivers/gpu/colorizer.h>
+#include <drivers/keyboard/driver.h>
 #include <drivers/VGA/driver.h>
 
 void main()
