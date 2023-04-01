@@ -1,6 +1,15 @@
 kernel_source_files := $(shell find init/ -name *.c)
 kernel_object_files := $(patsubst init/%.c, __temp__/kernel/%.o, $(kernel_source_files))
 
+coreutils_source_files := $(shell find coreutils/ -name *.c)
+coreutils_object_files := $(patsubst coreutils/%.c, __temp__/kernel/%.o, $(coreutils_source_files))
+
+VGA_source_files := $(shell find drivers/VGA/ -name *.c)
+VGA_object_files := $(patsubst drivers/VGA/%.c, __temp__/kernel/%.o, $(VGA_source_files))
+
+keyboard_source_files := $(shell find drivers/keyboard/ -name *.c)
+keyboard_object_files := $(patsubst drivers/keyboard/%.c, __temp__/kernel/%.o, $(keyboard_source_files))
+
 x86_64_c_source_files := $(shell find include/ -name *.c)
 x86_64_c_object_files := $(patsubst include/%.c, __temp__/x86_64/%.o, $(x86_64_c_source_files))
 
@@ -15,6 +24,14 @@ $(kernel_object_files): __temp__/kernel/%.o : init/%.c
 	mkdir -p $(dir $@) && \
 	x86_64-elf-gcc -c -I include/ -I . -ffreestanding $(patsubst __temp__/kernel/%.o, init/%.c, $@) -o $@
 
+$(coreutils_object_files): __temp__/kernel/%.o : coreutils/%.c
+	mkdir -p $(dir $@) && \
+	x86_64-elf-gcc -c -I include/ -I . -ffreestanding $(patsubst __temp__/kernel/%.o, coreutils/%.c, $@) -o $@
+
+$(VGA_object_files): __temp__/kernel/%.o : drivers/VGA/%.c
+	mkdir -p $(dir $@) && \
+	x86_64-elf-gcc -c -I include/ -I . -ffreestanding $(patsubst __temp__/kernel/%.o, drivers/VGA/%.c, $@) -o $@
+
 $(x86_64_c_object_files): __temp__/x86_64/%.o : include/%.c
 	mkdir -p $(dir $@) && \
 	x86_64-elf-gcc -c -I include/ -I . -ffreestanding $(patsubst __temp__/x86_64/%.o, include/%.c, $@) -o $@
@@ -24,7 +41,7 @@ $(x86_64_asm_object_files): __temp__/x86_64/%.o : arch/x86_64/boot/%.asm
 	nasm -f elf64 $(patsubst __temp__/x86_64/%.o, arch/x86_64/boot/%.asm, $@) -o $@
 
 .PHONY: build
-build: $(kernel_object_files) $(x86_64_object_files)
+build: $(kernel_object_files) $(x86_64_object_files) $(coreutils_object_files) $(VGA_object_files)
 #	mkdir __temp__
 #	mkdir __temp__/kernel
 #	mkdir __temp__/x86_64
@@ -32,7 +49,7 @@ build: $(kernel_object_files) $(x86_64_object_files)
 	mkdir __temp__/build
 	mkdir __temp__/build/x86_64
 	touch __temp__/build/x86_64/kernel.bin
-	x86_64-elf-ld -n -o __temp__/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(kernel_object_files) $(x86_64_object_files) && \
+	x86_64-elf-ld -n -o __temp__/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(kernel_object_files) $(x86_64_object_files) $(coreutils_object_files) $(VGA_object_files) && \
 	cp __temp__/build/x86_64/kernel.bin bootloader/x86_64/iso/boot/kernel.bin && \
 	grub-mkrescue /usr/lib/grub/i386-pc -o kernel.iso bootloader/x86_64/iso
 

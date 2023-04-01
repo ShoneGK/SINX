@@ -1,8 +1,6 @@
 {
     "files.associations": {
-        "rtc.h": "c",
-        "driver.h": "c",
-        "kbddriver.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
+        "string.h": "c",
+        "driver.h": "c"
+    }
 }

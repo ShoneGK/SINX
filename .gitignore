@@ -1,3 +1,5 @@
 __temp__*
 *.DS_Store
+.vscode
 kernel.iso
+.vscode/settings.json
