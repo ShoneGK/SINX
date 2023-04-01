@@ -33,9 +33,10 @@
 - [x] fix enter and backspace bugs
 - [x] add a blinking cursor
 - [x] read from RTC
-- [x] create/modify a better build system
+- [x] rewrite all c code into file.c and file.h respectively
+- [ ] organize functions into appropriate files
 - [ ] create custom docker container for native python support
-- [ ] rewrite all c code into file.c and file.h respectively
+- [ ] create/modify a better build system
 - [ ] add full ASCII compatability
 - [ ] convert project to camelCase
 - [ ] organize #include statements to remove repeats
