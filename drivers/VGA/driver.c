@@ -2,7 +2,7 @@
 
 #include <iobyte.h>
 #include <string.h>
-#include <dtypes.h>
+#include <std.h>
 #include <drivers/gpu/colorizer.h>
 
 unsigned char VGAColor = WHITE | BLACK << 4;

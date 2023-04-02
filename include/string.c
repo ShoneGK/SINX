@@ -1,6 +1,6 @@
 #include "string.h"
 
-#include <dtypes.h>
+#include <std.h>
 
 int strlen(char s[]) {
     int i = 0;
@@ -58,26 +58,3 @@ void clearString(char *string)
     string[i] = 0x00;
   }
 }
-
-
-
-/*
-void itoa(int num, char *number)
-{
-  int dgcount = digit_count(num);
-  int index = dgcount - 1;
-  char x;
-  if(num == 0 && dgcount == 1){
-    number[0] = '0';
-    number[1] = '\0';
-  }else{
-    while(num != 0){
-      x = num % 10;
-      number[index] = x + '0';
-      index--;
-      num = num / 10;
-    }
-    number[dgcount] = '\0';
-  }
-}
-*/

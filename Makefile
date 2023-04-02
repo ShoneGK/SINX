@@ -1,32 +1,39 @@
 # Find all .c files in the project
-kernel_source_files := $(shell find . -name '*.c')
-kernel_object_files := $(patsubst %.c, __temp__/kernel/%.o, $(kernel_source_files))
+C_FILES := $(shell find . -name '*.c')
+C_OBJFILES := $(patsubst %.c, __temp__/kernel/%.o, $(C_FILES))
 
 # Find all .asm files in the project
-x86_64_asm_source_files := $(shell find . -name '*.asm')
-x86_64_asm_object_files := $(patsubst %.asm, __temp__/x86_64/%.o, $(x86_64_asm_source_files))
+ASM_FILES := $(shell find . -name '*.asm')
+ASM_OBJ_FILES := $(patsubst %.asm, __temp__/x86_64/%.o, $(ASM_FILES))
+
+
+CC=x86_64-elf-gcc
+LD=x86_64-elf-ld
+CFLAGS=-c -I include/ -I . -I include/sinx/ -ffreestanding
+ASMFLAGS=-f elf64
+
 
 # create list of .o files
-x86_64_object_files := $(kernel_object_files) $(x86_64_asm_object_files)
+OBJ := $(C_OBJFILES) $(ASM_OBJ_FILES)
 
 $(echo Compiling Source)
 
 # compile .c files to .o
-$(kernel_object_files): __temp__/kernel/%.o : %.c
+$(C_OBJFILES): __temp__/kernel/%.o : %.c
 	mkdir -p $(dir $@) && \
-	x86_64-elf-gcc -c -I include/ -I . -ffreestanding $(patsubst __temp__/kernel/%.o, %.c, $@) -o $@
+	$(CC) $(CFLAGS) $(patsubst __temp__/kernel/%.o, %.c, $@) -o $@
 
 # compile .asm file to .o
-$(x86_64_asm_object_files): __temp__/x86_64/%.o : %.asm
+$(ASM_OBJ_FILES): __temp__/x86_64/%.o : %.asm
 	mkdir -p $(dir $@) && \
-	nasm -f elf64 $(patsubst __temp__/x86_64/%.o, %.asm, $@) -o $@
+	nasm  $(ASMFLAGS) $(patsubst __temp__/x86_64/%.o, %.asm, $@) -o $@
 
 .PHONY: build
-build: $(x86_64_object_files)
+build: $(OBJ)
 	mkdir __temp__/build
 	mkdir __temp__/build/x86_64
 	touch __temp__/build/x86_64/kernel.bin
-	x86_64-elf-ld -n -o __temp__/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(x86_64_object_files) && \
+	x86_64-elf-ld -n -o __temp__/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(OBJ) && \
 	cp __temp__/build/x86_64/kernel.bin bootloader/x86_64/iso/boot/kernel.bin && \
 	grub-mkrescue /usr/lib/grub/i386-pc -o kernel.iso bootloader/x86_64/iso && \
 	rm -r __temp__\

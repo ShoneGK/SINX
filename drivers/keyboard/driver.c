@@ -2,7 +2,7 @@
 
 #include <drivers/keyboard/keys.h>
 #include <iobyte.h>
-#include <dtypes.h>
+#include <std.h>
 // #include <sinx/buffer.h>
 #include <string.h>
 // #include <sinx/panic.h>

@@ -24,7 +24,7 @@
 /*************************************************************************/
 #pragma once
 
-#include <dtypes.h>
+#include <std.h>
 
 void wait_for_io(uint32_t timer_count);
 char get_input_keycode();
