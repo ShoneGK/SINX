@@ -17,28 +17,6 @@ unsigned int lastCharDel = 0;
 static char key_buffer[256];
 #define BACKSPACE_KEY 0x0E
 
-static void keyboard_callback()
-{
-    while (1 == 1)
-    {
-        uint8_t scancode = inb(0x60);
-
-        if (scancode == BACKSPACE_KEY)
-        {
-            if (backspace_func(key_buffer))
-            {
-                print_backspace();
-            }
-        }
-        else
-        {
-            char letter = get_ascii_char(scancode);
-            join(key_buffer, letter);
-            char str[2] = {letter, '\0'};
-            puts(str);
-        }
-    }
-}
 
 int backspace_func(char buffer[])
 {
@@ -63,6 +41,28 @@ void print_backspace()
     setVGACursor(newCursor);
 }
 
+static void keyboard_callback()
+{
+    while (1 == 1)
+    {
+        uint8_t scancode = inb(0x60);
+
+        if (scancode == BACKSPACE_KEY)
+        {
+            if (backspace_func(key_buffer))
+            {
+                print_backspace();
+            }
+        }
+        else
+        {
+            char letter = get_ascii_char(scancode);
+            join(key_buffer, letter);
+            char str[2] = {letter, '\0'};
+            puts(str);
+        }
+    }
+}
 
 void wait_for_io(uint32_t timer_count)
 {

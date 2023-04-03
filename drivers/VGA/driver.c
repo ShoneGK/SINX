@@ -70,8 +70,8 @@ int setNewline(int offset) {
 
 int scrollLine(int offset) {
     memcp(
-            (char *) (get_offset(0, 1) + VIDEO_ADDRESS),
-            (char *) (get_offset(0, 0) + VIDEO_ADDRESS),
+            (char *) (uintptr_t) (get_offset(0, 1) + VIDEO_ADDRESS),
+            (char *) (uintptr_t) (get_offset(0, 0) + VIDEO_ADDRESS),
             MAX_COLS * (MAX_ROWS - 1) * 2
     );
 

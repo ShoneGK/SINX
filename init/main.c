@@ -26,15 +26,21 @@
 
 #include <drivers/keyboard/driver.h>
 #include <drivers/VGA/driver.h>
+#include <cpu/isr.h>
 
 void main()
 {
-    
     clearVGA();
+    isr_install();
+    register_interrupt_handler(IRQ1, keyboardInstance);
+    // causes errors, maybe it will just work?
+    //asm volatile("sti");
+
     puts("------------------------------------- SINX -------------------------------------\n");
     
     enableVGACursor(15, 15); // sets cursor to "_"
     puts("> ");
+    
     keyboardInstance();
     //puts("DONE");
 }
