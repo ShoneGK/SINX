@@ -34,3 +34,4 @@ void memcp(char *source, char *dest, int nbytes);
 void clearString(char *string);
 void reverse(char s[]);
 void intToString(int n, char str[]);
+char *strcat(char* s, char* append);

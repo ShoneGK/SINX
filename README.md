@@ -35,6 +35,7 @@
 - [x] read from RTC
 - [x] rewrite all c code into file.c and file.h respectively
 - [x] create/modify a better build system
+- [x] cache all unmodded files for faster compile time
 - [ ] add inturupts
 - [ ] test on real hardware
 - [ ] organize functions into appropriate files

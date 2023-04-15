@@ -16,6 +16,15 @@ void strncat(char *s, char c)
   s[len + 1] = '\0';
 }
 
+char *strcat(char *s, char *append)
+{
+	char *save = s;
+
+	for (; *s; ++s);
+	while (*s++ = *append++);
+	return(save);
+}
+
 // compare string
 int strcmp(char s1[], char s2[]) {
     int i;
