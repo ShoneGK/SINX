@@ -120,18 +120,26 @@ void keyboardInstance()
       {
         readyToSend = false;
         keycode = get_input_keycode();
-        if (keycode == KEY_ENTER)
+        
+        // move the cursur one to the right
+        if (keycode == KEY_LEFT)
+        {
+          int offset = getVGACursor();
+          offset--;
+          setVGACursor(offset);
+        }
+        else if (keycode == KEY_RIGHT){
+          int offset = getVGACursor();
+          offset++;
+          offset++;
+          setVGACursor(offset);
+        }
+        
+        else if (keycode == KEY_ENTER)
         {
           puts("\n");
           execute_command(key_buffer);
           key_buffer[0] = '\0';
-        }
-        // for testing
-        else if (keycode == KEY_FORESLHASH)
-        {
-
-          clearVGA();
-          // puts(textData);
         }
         else if (keycode == KEY_BACKSPACE)
         {

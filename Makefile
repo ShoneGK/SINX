@@ -35,4 +35,5 @@ build: $(OBJ)
 	touch build/build/x86_64/kernel.bin
 	x86_64-elf-ld -n -o build/build/x86_64/kernel.bin -T bootloader/x86_64/linker.ld $(OBJ) && \
 	cp build/build/x86_64/kernel.bin bootloader/x86_64/iso/boot/kernel.bin && \
-	grub-mkrescue /usr/lib/grub/i386-pc -o kernel.iso bootloader/x86_64/iso
+	grub-mkrescue /usr/lib/grub/i386-pc -o kernel.iso bootloader/x86_64/iso && \
+	rm -r build*
