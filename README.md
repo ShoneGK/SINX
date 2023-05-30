@@ -1,6 +1,17 @@
 # SINX
  A basic 64bit multiboot2 compliant operating system for learning purpouses
 
+![Working Screenshot](https://raw.githubusercontent.com/ShoneGK/SINX/main/resources/Screenshot.png)
+
+## FEATURES
+ This operating system was never meant to be used in the real world but rather as a hobby project
+ 1. coreutils such as `echo`
+ 2. fairly stable TUI
+ 3. basic VGA and keyboard driver
+ 4. support for 64 bit
+ 5. 16 bit color
+ 6. GRUB bootloader
+
 ## BUILDING
  make sure you have docker and qemu installed and running
  1. download and extract the source
