@@ -4,7 +4,9 @@
 #ifndef NULL
 #define NULL ((void *)0)
 #endif
-
+#ifndef bool
+#define bool int
+#endif
 #ifndef false
 #define false 0
 #endif
