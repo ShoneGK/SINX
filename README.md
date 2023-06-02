@@ -1,5 +1,5 @@
 # SINX
- A basic 64bit multiboot2 compliant operating system for learning purpouses
+ A basic 64bit multiboot2 compliant operating system for learning purposes
 
 ![Working Screenshot](https://raw.githubusercontent.com/ShoneGK/SINX/main/resources/Screenshot.png)
 
